@@ -1,95 +1,187 @@
-import { Html, Text, Image } from "@react-three/drei";
+import { Html, Text, Image, Box, Text3D, useMatcapTexture, Float } from "@react-three/drei";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { useRef, useState } from "react";
+import { TextureLoader } from "three";
+import blackops from '../assets/black-ops.json';
+import { Icon } from "./svg";
+import { projects } from "./projectsList";
 
 export function Title() {
-    return(
-        <Text 
-        position={[0, 2.3, 0]} 
-        anchorX="center" 
-        anchorY="center" 
-        textAlign="center"
-        fontSize={0.6}>Projects</Text>
-    );
+function MatCap({ texture }) {
+      const [matcap] = useMatcapTexture(texture, 256);
+      return <meshMatcapMaterial matcap={matcap} />;
+    };
+
+  return(
+    <Float>
+    <Text3D
+        position={[-1.9, 1.7, 0.8]}
+        font={blackops}
+        height={0.2}
+        letterSpacing={0}
+        size={0.6}
+        curveSegments={10}
+        bevelEnabled
+        bevelThickness={0.02}
+        bevelOffset={0.01}
+        bevelSegments={9}
+      >
+        {" "}
+        Projects
+        <MatCap texture={"3B3C3F_DAD9D5_929290_ABACA8"} />{" "}
+      </Text3D>
+      </Float>
+  )
 };
 
-const projects = [
-    {
-        "image": "three-d-react-app.png",
-        "project name": "3D React app",
-        "type": "Front end",
-        "tech": "React, Three.js, Bootstrap",
-        "description": `A 3D react app created using
-Three.js, featuring a 3D and 2D view based 
-on recursive geometric computations.`,
-"link": "https://3782291211.github.io/3D-geometric-sim/"
-    }
-]
+export function Projects ({setGlitch, glitch}) {
+ const [projectIndex, setProjectIndex] = useState(0);
+ const scene = useRef();
+ const texture = useLoader(TextureLoader, projects[projectIndex]['image']);
+  useFrame(() => {
+    scene.current.rotation.y += 0.01;
+    scene.current.rotation.x += 0.01;
+    scene.current.rotation.z += 0.01;
+  });
 
-export function Project () {
     return (<>
+     <group position={[1.6, -0.2, 1.4]} ref={scene}>
+      <Box>
+        <meshStandardMaterial map={texture}/>
+      </Box>
+    </group>
+
     <Image
-    position={[0.9, 0, 3]}
-    url={projects[0]['image']}
-    />
+    transparent
+    scale={[8, 7]}
+    opacity={0.02}
+    position={[0, 0, -0.2]}
+    url='ai.png'
+    /> 
+
     <Text 
-    position={[-2.3, 1, 0]}
+     position={[-2.3, 1.3, 0]}
+     fontSize={0.15}
+     font={"RobotoMono-Regular.ttf"}
+     anchorX="left">
+         Use the controls below to cycle through my projects.
+         <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
+     </Text>
+
+    <Text 
+    position={[-2.3, 0.9, 0]}
     fontSize={0.24}
+    font={"RobotoMono-Bold.ttf"}
     anchorX="left">
-        {projects[0]['project name']}
+        <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
+        {projects[projectIndex]['project name']}
     </Text>
      <Text 
-     position={[-2.3, 0.7, 0]}
+     position={[-2.3, 0.6, 0]}
      fontSize={0.15}
+     font={"RobotoMono-Regular.ttf"}
      anchorX="left">
-         {projects[0]['type']} project
+         {projects[projectIndex]['type']} project.
+         <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
      </Text>
      <Text 
-     position={[-2.3, 0.4, 0]}
+     position={[-2.3, 0.2, 0]}
      fontSize={0.15}
+     font={"RobotoMono-Regular.ttf"}
      anchorX="left">
-         Tech: {projects[0]['tech']}
+         Tech: {projects[projectIndex]['tech']}
+         <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
      </Text>
      <Text 
-     position={[-2.3, 0.05, 0]}
+     position={[-2.3, -0.1, 0]}
      fontSize={0.15}
-     anchorX="left">
-         Description: {projects[0]['description']}
+     font={"RobotoMono-Regular.ttf"}
+     lineHeight={1.2}
+     anchorX="left"
+     anchorY="top"
+     >
+         Description: {projects[projectIndex]['description']}
+         <meshStandardMaterial emissive="white" emissiveIntensity={1.02} toneMapped={false} />
      </Text>
 
      <Text 
-     position={[-2.3, -0.4, 0]}
-     anchorX="left"
-     anchorY="top">
-         <Html occlude="blending" transform position={[0.65, 0, 0]}>
-            <a href={projects[0]['link']} target="_blank" rel="noopener noreferrer">Click to view app</a>
+     position={[-2.3, -1.3, 0]}
+     anchorX="left">
+         <Html
+         wrapperClass="external-link" 
+         position={[0.9, -0.4, 0]}
+         transform>
+            <a href={projects[projectIndex]['link']} target="_blank" rel="noopener noreferrer"><Icon/>Click to view app</a>
          </Html>
      </Text>
 
      <Text 
-     position={[-2.3, -1.7, 0]}
-     fontSize={0.15}
+     position={[-2.3, -1.3, 0]}
+     anchorX="left">
+         <Html 
+         wrapperClass="external-link"
+         position={[1.63, -0.62, 0]}
+         transform>
+            <a href={projects[projectIndex]['github']} target="_blank" rel="noopener noreferrer"><Icon/>Click to view GitHub repository</a>
+         </Html>
+     </Text>
+
+     <Text 
+     position={[0, -2.34, 0.07]}
+     fontSize={0.12}
+     font={"RobotoMono-Regular.ttf"}
      anchorX="left"
      anchorY="top"
-     color="#39ff14">
+     color="rgb(10, 100, 230)">
          Select project
+         <meshStandardMaterial emissive="green" emissiveIntensity={7} toneMapped={false} />
      </Text>
 
      <Text 
-     position={[-0.8, -1.7, 0]}
-     fontSize={0.15}
+     position={[2.3, -2.34, 0.07]}
+     fontSize={0.12}
+     font={"RobotoMono-Regular.ttf"}
      anchorX="left"
      anchorY="top"
-     color="#39ff14">
+     onClick={() => {
+        setGlitch(prev => !prev)
+     }}>
+         {`Toggle glitch effect \n(${glitch ? 'ON' : 'OFF'})`}
+         <meshStandardMaterial emissive={glitch ? "#39ff14" : "rgb(10, 100, 230)"} emissiveIntensity={glitch ? 1.5 : 7} toneMapped={false} />
+     </Text>
+
+     {projectIndex > 0 && <Text 
+     position={[-1.3, -2.3, 0]}
+     fontSize={0.20}
+     font={"RobotoMono-Regular.ttf"}
+     anchorX="left"
+     anchorY="top"
+     color="hotpink"
+     onClick={() => {
+        if (projectIndex > 0) {
+              setProjectIndex(prev => prev - 1)
+        };
+     }}>
          Previous
-     </Text>
+         <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
+     </Text>}
 
-     <Text 
-     position={[-0.1, -1.7, 0]}
-     fontSize={0.15}
+     {projectIndex < 5 && <Text 
+     position={[1.3, -2.3, 0]}
+     fontSize={0.20}
+     font={"RobotoMono-Regular.ttf"}
      anchorX="left"
      anchorY="top"
-     color="#39ff14">
+     color="hotpink"
+     onClick={() => {
+        if (projectIndex < 5) {
+            console.log(projectIndex);
+             setProjectIndex(prev => prev + 1);
+        };
+     }}>
          Next
-     </Text>
+         <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
+     </Text>}
 
     </>);
 };
