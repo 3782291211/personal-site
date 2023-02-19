@@ -2,7 +2,7 @@
   "name": "personal-site",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://3782291211.github.io/personal-site",
+  "homepage": "http://3782291211.github.io/3D-portfolio",
   "dependencies": {
     "@react-three/drei": "^9.56.25",
     "@react-three/fiber": "^8.11.2",
