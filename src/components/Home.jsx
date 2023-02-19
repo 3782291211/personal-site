@@ -1,35 +1,40 @@
-import React, { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { Box } from "@react-three/drei";
+import React, { Suspense, useRef, useState } from "react";
+import { OrbitControls, SpotLight, Stars, useDepthBuffer } from "@react-three/drei";
 import "../index.css";
-import { Project, Title } from "./Text";
-import { ProjectImage } from "./ProjectImage";
+import { Projects, Title } from "./Text";
+import { Loading } from "./Loading";
+import { Bloom, EffectComposer, Glitch, Noise, Scanline, Vignette } from "@react-three/postprocessing";
+import { BlendFunction, GlitchMode } from 'postprocessing'
+import { useThree } from "@react-three/fiber";
 
-const Scene = () => {
-  const scene = useRef();
-  useFrame(() => {
-    scene.current.rotation.y += 0.02;
-    scene.current.rotation.x += 0.02;
-    scene.current.rotation.z += 0.02;
-  });
-  return (
-    <group ref={scene}>
-      <Box>
-        <meshLambertMaterial color="white" />
-      </Box>
-    </group>
-  );
-};
 
 export default function Home() {
-  return (
-    <Canvas className='home_canvas'>
+  const [glitch, setGlitch] = useState(true);
+  const { viewport } = useThree();
+  const meshRef = useRef();
+  console.log(viewport);
+
+  return (<mesh ref={meshRef} scale={viewport.width < 5.5 ? viewport.width / 6 : 1}>
+      <Stars/>
       <directionalLight intensity={0.5} />
-      <Suspense fallback={null}>
+      <SpotLight anglePower={8} position={[3, 3, 5]}/>
+      <SpotLight anglePower={8} position={[-3, 3, 5]}/>
+      <OrbitControls></OrbitControls>
+      <EffectComposer>
+        <Bloom 
+        mipmapBlur 
+        luminanceThreshold={1}
+        intensity={3}
+        />
+        <Scanline blendFunction={BlendFunction.DARKEN} density={5} opacity={0.1}/>
+        <Noise opacity={0.1}/>
+        {glitch && <Glitch mode={GlitchMode.SPORADIC} strength={[0.2, 0.7]} delay={[1.5, 6]} ratio={0.5} duration={[0.05, 0.6]} />}
+        <Vignette  offset={0.7} darkness={0.55} blendFunction={BlendFunction.NORMAL}/>
+      <Suspense fallback={<Loading/>}>
       <Title/>
-      <Project/>
-      {/* <Scene /> */}
+      <Projects glitch={glitch} setGlitch={setGlitch}/>
       </Suspense>
-    </Canvas>
+      </EffectComposer>
+      </mesh>
   );
 }
