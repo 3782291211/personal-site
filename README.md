@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# 3D React single-page application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to another one of my 3D projects with Three.js! This time, I have created a 3D scene that is mainly based on drei's text component and various image filter  effects from three.js's postprocessing libraries.
 
-## Available Scripts
+The purpose of this app is to display the various projects I've worked on and to provide links to the repositories and hosted apps.
 
-In the project directory, you can run:
+<br>
+<img width=350 src="public/three-js.png">
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## App features:
+- Interactive camera with fully controllable position and zoom.
+- Control buttons to cycle through different projects.
+- Various postprocessing effects, including bloom, scan lines, noise and a glitch effect.
+- Loading screen utilising React's suspense component.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Libraries used:
+- Three.js
+- React-three/fiber
+- React-three/drei
+- postprocessing & React-three/postprocessing
 
-### `npm test`
+### A note on performance
+This app is powered by **WebGL** and should run well on most modern browsers, including Chrome, Firefox, Internet Explorer, Opera and Safari. However, there is a small chance that you may experience poor performance on some browsers which do not properly support WebGL, such as Brave Web Browser.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+On the off chance that you experience poor frame rates or stuttering animations on your chosen browser, switch to Google Chrome for best results.
