@@ -7,14 +7,11 @@ The purpose of this app is to display the various projects I've worked on and to
 <br>
 <img width=350 src="public/three-js.png">
 
-<br>
-
 ## App features:
 - Interactive camera with fully controllable position and zoom.
 - Control buttons to cycle through different projects.
 - Various postprocessing effects, including bloom, scan lines, noise and a glitch effect.
 - Loading screen utilising React's suspense component.
-<br>
 
 ## Libraries used:
 - Three.js
