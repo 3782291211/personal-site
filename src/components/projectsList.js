@@ -1,6 +1,13 @@
+import threeTexture from '../assets/three-js.png';
+import reactTexture from '../assets/logo512.png';
+import nodeTexture from '../assets/node-express.png';
+import vueTexture from '../assets/vue.svg';
+import drfTexture from '../assets/drf.png';
+import htmlTexture from '../assets/html.png';
+
 export const projects = [
     {
-        "image": "three-js.png",
+        "image": threeTexture,
         "project name": "3D React app",
         "type": "Front end",
         "tech": `
@@ -14,7 +21,7 @@ computations.`,
 "github": "https://github.com/3782291211/3D-geometric-sim"
     },
     {
-        "image": "logo512.png",
+        "image": reactTexture,
         "project name": "React social app",
         "type": "Front end",
         "tech": `
@@ -30,7 +37,7 @@ on UI optimisations for mobile.`,
 "github": "https://github.com/3782291211/frontend-portfolio-project"
     },
     {
-        "image": "node-express.png",
+        "image": nodeTexture,
         "project name": "Node/Express REST API",
         "type": "Back end",
         "tech": `
@@ -42,10 +49,11 @@ integration testing, advanced error
 handling, relational data models,
 complex SQL join queries, pagination,
 modular routing, and more.`,
-"link": "https://majids-backend-api-project.onrender.com/"
+"link": "https://majids-backend-api-project.onrender.com/api",
+"github": "https://github.com/3782291211/backend-portfolio-project"
     },
     {
-        "image": "vue.svg",
+        "image": vueTexture,
         "project name": "Vue app",
         "type": "Front end",
         "tech": `
@@ -58,11 +66,11 @@ projects.`,
 "github": "https://github.com/3782291211/backend-portfolio-project"
     },
     {
-        "image": "drf.png",
+        "image": drfTexture,
         "project name": "NoSQL Python/Django API",
         "type": "Back end",
         "tech": `
-Django, MongoDB`,
+Python, Django, MongoDB`,
         "description": `
 A Django REST Framework API
 supporting all CRUD operations,
@@ -73,7 +81,7 @@ integration testing.`,
 "github": "https://github.com/3782291211/django-api-project"
     },
     {
-        "image": "html.png",
+        "image": htmlTexture,
         "project name": "Pop culture website",
         "type": "Front end",
         "tech": `
