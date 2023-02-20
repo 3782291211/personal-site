@@ -2,7 +2,7 @@
   "name": "3d-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://3782291211.github.io/3d-portfolio/#",
+  "homepage": "http://3782291211.github.io/3d-portfolio#/",
   "dependencies": {
     "@react-three/drei": "^9.56.25",
     "@react-three/fiber": "^8.11.2",
