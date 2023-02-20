@@ -55,7 +55,6 @@ export function Title() {
 export function About() {
 const {viewport} = useThree();
 const meshRef = useRef();
-console.log(viewport);
 
     return (
     <mesh ref={meshRef} scale={viewport.width < 8.2 ? viewport.width / 13 : 0.6}><Float>
