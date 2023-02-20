@@ -11,12 +11,12 @@ function App() {
     <div className="App">
       <Navigation/>
       <Routes>
-        <Route path="/projects" element={<Canvas camera={{fov: 70}} className='home_canvas'>
-          <ProjectSelector/>
-          </Canvas>}/>
-          <Route path="/" element={<Canvas camera={{fov: 70}} 
+          <Route exact path="/" element={<Canvas camera={{fov: 70}} 
           className='home_canvas'>
           <Home/>
+          <Route path="/projects" element={<Canvas camera={{fov: 70}} className='home_canvas'>
+          <ProjectSelector/>
+          </Canvas>}/>
           </Canvas>}/>
           <Route path="/About" element={<Canvas camera={{fov: 70}} 
           className='home_canvas'>
