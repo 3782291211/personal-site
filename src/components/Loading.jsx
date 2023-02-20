@@ -3,6 +3,9 @@ import { Text } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
 import img from '../assets/green.png';
+import robotoBold from '../assets/RobotoMono-Bold.ttf';
+import { EffectComposer, Glitch } from "@react-three/postprocessing";
+import { GlitchMode } from "postprocessing";
 
 export function Loading() {
     const texture = new THREE.TextureLoader().load(img);
@@ -16,9 +19,12 @@ export function Loading() {
 
     return(
         <group>
+        <EffectComposer>
+        <Glitch active mode={GlitchMode.CONSTANT_WILD}/>
         <Text
         position={[-0.5, 0.9, 2]}
         fontSize={0.24}
+        font={robotoBold}
         anchorX="left">
          <meshStandardMaterial emissive="gold" emissiveIntensity={2} toneMapped={false} />Loading...</Text>
           <mesh ref={myRef}>
@@ -30,6 +36,7 @@ export function Loading() {
           matcap={texture}/>
           <coneGeometry args={[2, 3, 3]}/>
           </mesh>
+          </EffectComposer>
         </group>
     )
 };
