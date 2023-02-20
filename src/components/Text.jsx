@@ -5,6 +5,10 @@ import { TextureLoader } from "three";
 import blackops from '../assets/black-ops.json';
 import { Icon } from "./svg";
 import { projects } from "./projectsList";
+import aiTexture from '../assets/ai.png';
+import robotoBold from '../assets/RobotoMono-Bold.ttf';
+import robotoRegular from '../assets/RobotoMono-Regular.ttf';
+import robotoLight from '../assets/RobotoMono-Light.ttf';
 
 export function Title() {
 function MatCap({ texture }) {
@@ -34,7 +38,7 @@ function MatCap({ texture }) {
   )
 };
 
-export function Projects ({setGlitch, glitch}) {
+export function Project ({setGlitch, glitch}) {
  const [projectIndex, setProjectIndex] = useState(0);
  const scene = useRef();
  const texture = useLoader(TextureLoader, projects[projectIndex]['image']);
@@ -56,13 +60,13 @@ export function Projects ({setGlitch, glitch}) {
     scale={[8, 7]}
     opacity={0.02}
     position={[0, 0, -0.2]}
-    url='ai.png'
+    url={aiTexture}
     /> 
 
     <Text 
      position={[-2.3, 1.3, 0]}
      fontSize={0.15}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left">
          Use the controls below to cycle through my projects.
          <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
@@ -71,7 +75,7 @@ export function Projects ({setGlitch, glitch}) {
     <Text 
     position={[-2.3, 0.9, 0]}
     fontSize={0.24}
-    font={"RobotoMono-Bold.ttf"}
+    font={robotoBold}
     anchorX="left">
         <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
         {projects[projectIndex]['project name']}
@@ -79,7 +83,7 @@ export function Projects ({setGlitch, glitch}) {
      <Text 
      position={[-2.3, 0.6, 0]}
      fontSize={0.15}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoLight}
      anchorX="left">
          {projects[projectIndex]['type']} project.
          <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
@@ -87,7 +91,7 @@ export function Projects ({setGlitch, glitch}) {
      <Text 
      position={[-2.3, 0.2, 0]}
      fontSize={0.15}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left">
          Tech: {projects[projectIndex]['tech']}
          <meshStandardMaterial emissive="white" emissiveIntensity={1.2} toneMapped={false} />
@@ -95,7 +99,7 @@ export function Projects ({setGlitch, glitch}) {
      <Text 
      position={[-2.3, -0.1, 0]}
      fontSize={0.15}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      lineHeight={1.2}
      anchorX="left"
      anchorY="top"
@@ -129,7 +133,7 @@ export function Projects ({setGlitch, glitch}) {
      <Text 
      position={[0, -2.34, 0.07]}
      fontSize={0.12}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left"
      anchorY="top"
      color="rgb(10, 100, 230)">
@@ -138,22 +142,22 @@ export function Projects ({setGlitch, glitch}) {
      </Text>
 
      <Text 
-     position={[2.3, -2.34, 0.07]}
+     position={[-0.4, -2.7, 0.07]}
      fontSize={0.12}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left"
      anchorY="top"
      onClick={() => {
         setGlitch(prev => !prev)
      }}>
-         {`Toggle glitch effect \n(${glitch ? 'ON' : 'OFF'})`}
+         {`Toggle glitch effect (${glitch ? 'ON' : 'OFF'})`}
          <meshStandardMaterial emissive={glitch ? "#39ff14" : "rgb(10, 100, 230)"} emissiveIntensity={glitch ? 1.5 : 7} toneMapped={false} />
      </Text>
 
      {projectIndex > 0 && <Text 
      position={[-1.3, -2.3, 0]}
      fontSize={0.20}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left"
      anchorY="top"
      color="hotpink"
@@ -169,13 +173,12 @@ export function Projects ({setGlitch, glitch}) {
      {projectIndex < 5 && <Text 
      position={[1.3, -2.3, 0]}
      fontSize={0.20}
-     font={"RobotoMono-Regular.ttf"}
+     font={robotoRegular}
      anchorX="left"
      anchorY="top"
      color="hotpink"
      onClick={() => {
         if (projectIndex < 5) {
-            console.log(projectIndex);
              setProjectIndex(prev => prev + 1);
         };
      }}>
