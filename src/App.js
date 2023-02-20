@@ -1,15 +1,28 @@
 import { Canvas } from '@react-three/fiber';
-import Home from './components/Home';
+import ProjectSelector from './components/ProjectSelector';
+import { Home } from './components/Home';
+import { Navigation } from './components/Navigation';
 import './index.css';
+import { Routes, Route } from 'react-router-dom';
+import { About } from './components/About';
 
 function App() {
   return (
     <div className="App">
-      <Canvas camera={{
-        fov: 70
-      }} className='home_canvas'>
-      <Home/>
-      </Canvas>
+      <Navigation/>
+      <Routes>
+        <Route path="/projects" element={<Canvas camera={{fov: 70}} className='home_canvas'>
+          <ProjectSelector/>
+          </Canvas>}/>
+          <Route path="/" element={<Canvas camera={{fov: 70}} 
+          className='home_canvas'>
+          <Home/>
+          </Canvas>}/>
+          <Route path="/About" element={<Canvas camera={{fov: 70}} 
+          className='home_canvas'>
+          <About/>
+          </Canvas>}/>
+      </Routes>
     </div>
   );
 }
