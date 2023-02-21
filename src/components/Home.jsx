@@ -1,12 +1,13 @@
 import { useFrame, useThree } from "@react-three/fiber";
 import { Bloom, EffectComposer, GodRays } from "@react-three/postprocessing";
-import { forwardRef } from "react";
+import { forwardRef, Suspense } from "react";
 import { BlendFunction, KernelSize, Resizer } from "postprocessing";
-import { OrbitControls, PerspectiveCamera, Image, Float, useMatcapTexture, Text3D, Text } from "@react-three/drei";
+import { PerspectiveCamera, Image, Float, useMatcapTexture, Text3D, Text } from "@react-three/drei";
 import { useResource } from "react-three-fiber";
 import ancient from '../assets/ancient.jpg';
 import blackops from '../assets/black-ops.json';
 import robotoRegular from '../assets/RobotoMono-Regular.ttf';
+import { Loading } from "./Loading";
 
 export function Title() {
   const { viewport } = useThree();
@@ -59,7 +60,7 @@ unknown`;
     return <meshMatcapMaterial matcap={matcap} />;
   };
 
-  return (<EffectComposer multisampling={0}><Sun ref={sunRef}/>
+  return (<Suspense fallback={<Loading/>}><EffectComposer multisampling={0}><Sun ref={sunRef}/>
       {sunRef.current && (<GodRays
             sun={sunRef.current}
             blendFunction={BlendFunction.Screen}
@@ -92,7 +93,7 @@ unknown`;
            anchorX="left">{str}
            <meshStandardMaterial emissive="#CC0000" transparent opacity={0.6} emissiveIntensity={5} toneMapped={false}/>
            </Text></Float>
-           </EffectComposer>);
+           </EffectComposer></Suspense>);
 };
 
 
@@ -106,7 +107,6 @@ export function Home () {
         position={[0, -0.5, -0.2]}
         url={ancient}/></Float>
         <Effects/>
-        {/* <OrbitControls/> */}
         <ambientLight intensity={0.8} />
         <pointLight position={[15, 15, 15]} intensity={1} />
         </mesh>
