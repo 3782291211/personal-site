@@ -45,12 +45,8 @@ function Effects() {
   const { viewport } = useThree();
   const sunRef = useResource(null);
   const str = viewport.width > 18.9 ? `      Take a moment to admire your surroundings,
-or use the links above to navigate around the website.` : `Take a moment to
-   admire your
- surroundings, or
-  use the links
- above to navigate
-around the website.`;
+or use the links above to navigate around the website.` : `   Use the links above to 
+navigate around the website.`;
 
   const title = viewport.width > 18.9 ? 'Location: unknown' : `Location: 
 unknown`;
@@ -75,7 +71,7 @@ unknown`;
             kernelSize={KernelSize.SMALL}
             blur={true}/>)}
         <Bloom mipmapBlur luminanceThreshold={1} intensity={2}/>
-          <Float><Text3D position={viewport.width > 18.9 ? [-6.3, 6.7, 5] : [-2.5, 6.7, 5]}
+          <Float><Text3D position={viewport.width > 18.9 ? [-6.3, 6.7, 5] : [-2.5, 7, 5]}
             font={blackops}
             height={0.2}
             lineHeight={0.7}
@@ -87,7 +83,7 @@ unknown`;
             bevelOffset={0.01}
             bevelSegments={9}>{title}<MatCap texture={"422509_C89536_824512_0A0604"}/></Text3D></Float>
           <Float><Text 
-           position={viewport.width > 18.9 ? [-6.3, 5.2, 5] : [-2, -6, 5]}
+           position={viewport.width > 18.9 ? [-6.3, 5.2, 5] : [-3.5, 4.5, 5]}
            fontSize={0.4}
            font={robotoRegular}
            anchorX="left">{str}
