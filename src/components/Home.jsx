@@ -7,7 +7,6 @@ import { useResource } from "react-three-fiber";
 import ancient from '../assets/ancient.jpg';
 import blackops from '../assets/black-ops.json';
 import robotoRegular from '../assets/RobotoMono-Regular.ttf';
-import { Loading } from "./Loading";
 
 export function Title() {
   const { viewport } = useThree();
@@ -60,7 +59,8 @@ unknown`;
     return <meshMatcapMaterial matcap={matcap} />;
   };
 
-  return (<Suspense fallback={<Loading/>}><EffectComposer multisampling={0}><Sun ref={sunRef}/>
+  return (<EffectComposer multisampling={0}>
+    <Sun ref={sunRef}/>
       {sunRef.current && (<GodRays
             sun={sunRef.current}
             blendFunction={BlendFunction.Screen}
@@ -93,7 +93,7 @@ unknown`;
            anchorX="left">{str}
            <meshStandardMaterial emissive="#CC0000" transparent opacity={0.6} emissiveIntensity={5} toneMapped={false}/>
            </Text></Float>
-           </EffectComposer></Suspense>);
+           </EffectComposer>);
 };
 
 
