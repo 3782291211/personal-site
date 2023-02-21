@@ -9,6 +9,7 @@ import aiTexture from '../assets/ai.png';
 import robotoBold from '../assets/RobotoMono-Bold.ttf';
 import robotoRegular from '../assets/RobotoMono-Regular.ttf';
 import robotoLight from '../assets/RobotoMono-Light.ttf';
+import { isMobile } from "react-device-detect";
 
 export function Title() {
 function MatCap({ texture }) {
@@ -19,7 +20,7 @@ function MatCap({ texture }) {
   return(
     <Float>
     <Text3D
-        position={[-1.9, 1.7, 0.8]}
+        position={isMobile? [-2.1, 2, 0.8] : [-2.1, 1.7, 0.8]}
         font={blackops}
         height={0.2}
         letterSpacing={0}
@@ -32,7 +33,7 @@ function MatCap({ texture }) {
       >
         {" "}
         Projects
-        <MatCap texture={"3B3C3F_DAD9D5_929290_ABACA8"} />{" "}
+        <MatCap texture={!isMobile ? "3B3C3F_DAD9D5_929290_ABACA8" : "714C30_EAD7C5_CC9265_E2B48F"} />{" "}
       </Text3D>
       </Float>
   )
@@ -43,9 +44,9 @@ export function Project ({setGlitch, glitch}) {
  const scene = useRef();
  const texture = useLoader(TextureLoader, projects[projectIndex]['image']);
   useFrame(() => {
-    scene.current.rotation.y += 0.01;
-    scene.current.rotation.x += 0.01;
-    scene.current.rotation.z += 0.01;
+    scene.current.rotation.y += isMobile ? 0.04 : 0.01;
+    scene.current.rotation.x += isMobile ? 0.04 : 0.01;
+    scene.current.rotation.z += isMobile ? 0.04 : 0.01;
   });
 
     return (<>
@@ -64,7 +65,7 @@ export function Project ({setGlitch, glitch}) {
     /> 
 
     <Text 
-     position={[-2.3, 1.3, 0]}
+     position={isMobile ? [-2.3, 1.5, 0] : [-2.3, 1.3, 0]}
      fontSize={0.15}
      font={robotoRegular}
      anchorX="left">
@@ -73,8 +74,8 @@ export function Project ({setGlitch, glitch}) {
      </Text>
 
     <Text 
-    position={[-2.3, 0.9, 0]}
-    fontSize={0.24}
+    position={isMobile ? [-2.3, 1, 0] : [-2.3, 0.9, 0]}
+    fontSize={isMobile ? 0.28 : 0.24}
     font={robotoBold}
     anchorX="left">
         <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
@@ -108,31 +109,22 @@ export function Project ({setGlitch, glitch}) {
          <meshStandardMaterial emissive="white" emissiveIntensity={1.02} toneMapped={false} />
      </Text>
 
-     <Text 
-     position={[-2.3, -1.35, 0]}
-     anchorX="left">
-         <Html
+     <Html
          wrapperClass="external-link" 
-         position={[0.9, -0.4, 0]}
+         position={isMobile? [-1.36, -1.75, 0] : [-1.36, -1.8, 0]}
          transform>
-            <a href={projects[projectIndex]['link']} target="_blank" rel="noopener noreferrer"><Icon/>Click to view app</a>
-         </Html>
-     </Text>
-
-     <Text 
-     position={[-2.3, -1.35, 0]}
-     anchorX="left">
-         <Html 
+            <a href={projects[projectIndex]['link']} target="_blank" rel="noopener noreferrer"><Icon/>{`Click to view ${projects[projectIndex]['project name'].endsWith('API') ? 'API' : 'app'}`}</a>
+      </Html>
+      <Html
          wrapperClass="external-link"
-         position={[1.63, -0.62, 0]}
+         position={isMobile? [-0.63, -2, 0] : [-0.63, -2.03, 0]}
          transform>
             <a href={projects[projectIndex]['github']} target="_blank" rel="noopener noreferrer"><Icon/>Click to view GitHub repository</a>
-         </Html>
-     </Text>
+       </Html>
 
      <Text 
-     position={[0, -2.34, 0.07]}
-     fontSize={0.12}
+     position={isMobile ? [-0.45, -2.36, 0.07] : [-0.32, -2.34, 0.07]}
+     fontSize={isMobile ? 0.15 : 0.12}
      font={robotoRegular}
      anchorX="left"
      anchorY="top"
@@ -142,8 +134,8 @@ export function Project ({setGlitch, glitch}) {
      </Text>
 
      <Text 
-     position={[-0.4, -2.7, 0.07]}
-     fontSize={0.12}
+     position={isMobile ? [-0.78, -2.7, 0.07] : [-0.46, -2.7, 0.07]}
+     fontSize={isMobile ? 0.18 : 0.12}
      font={robotoRegular}
      anchorX="left"
      anchorY="top"
@@ -155,8 +147,8 @@ export function Project ({setGlitch, glitch}) {
      </Text>
 
      {projectIndex > 0 && <Text 
-     position={[-1.3, -2.3, 0]}
-     fontSize={0.20}
+     position={isMobile ? [-1.85, -2.3, 0] : [-1.58, -2.3, 0]}
+     fontSize={isMobile ? 0.25 : 0.20}
      font={robotoRegular}
      anchorX="left"
      anchorY="top"
@@ -171,8 +163,8 @@ export function Project ({setGlitch, glitch}) {
      </Text>}
 
      {projectIndex < 5 && <Text 
-     position={[1.3, -2.3, 0]}
-     fontSize={0.20}
+     position={isMobile ? [1, -2.3, 0] : [1, -2.3, 0]}
+     fontSize={isMobile ? 0.25 :0.20}
      font={robotoRegular}
      anchorX="left"
      anchorY="top"
