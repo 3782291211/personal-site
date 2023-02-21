@@ -19,7 +19,7 @@ export function Loading() {
 
     return(
         <group>
-        <EffectComposer>
+        <EffectComposer multisampling={0}>
         <Glitch active mode={GlitchMode.CONSTANT_WILD}/>
         <Text
         position={[-0.5, 0.9, 2]}
