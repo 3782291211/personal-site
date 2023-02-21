@@ -49,7 +49,7 @@ export function Project ({setGlitch, glitch}) {
   });
 
     return (<>
-     <group position={[1.6, -0.2, 1.4]} ref={scene}>
+     <group position={[1.4, -0.2, 1.4]} ref={scene}>
       <Box>
         <meshStandardMaterial map={texture}/>
       </Box>
@@ -109,7 +109,7 @@ export function Project ({setGlitch, glitch}) {
      </Text>
 
      <Text 
-     position={[-2.3, -1.3, 0]}
+     position={[-2.3, -1.35, 0]}
      anchorX="left">
          <Html
          wrapperClass="external-link" 
@@ -120,7 +120,7 @@ export function Project ({setGlitch, glitch}) {
      </Text>
 
      <Text 
-     position={[-2.3, -1.3, 0]}
+     position={[-2.3, -1.35, 0]}
      anchorX="left">
          <Html 
          wrapperClass="external-link"
@@ -150,8 +150,8 @@ export function Project ({setGlitch, glitch}) {
      onClick={() => {
         setGlitch(prev => !prev)
      }}>
-         {`Toggle glitch effect (${glitch ? 'ON' : 'OFF'})`}
-         <meshStandardMaterial emissive={glitch ? "#39ff14" : "rgb(10, 100, 230)"} emissiveIntensity={glitch ? 1.5 : 7} toneMapped={false} />
+         {`Glitch effect: ${glitch ? 'ON' : 'OFF'}`}
+         <meshStandardMaterial emissive={glitch ? "#FF264B" : "rgb(10, 100, 230)"} emissiveIntensity={glitch ? 4.4 : 7} toneMapped={false} />
      </Text>
 
      {projectIndex > 0 && <Text 

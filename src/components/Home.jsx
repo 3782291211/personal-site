@@ -9,22 +9,26 @@ import blackops from '../assets/black-ops.json';
 import robotoRegular from '../assets/RobotoMono-Regular.ttf';
 
 export function Title() {
+  const { viewport } = useThree();
+  const title = viewport.width > 18.9 ? 'Location: unknown' : `Location: 
+unknown`;
     function MatCap({ texture }) {
           const [matcap] = useMatcapTexture(texture, 256);
           return <meshMatcapMaterial matcap={matcap} />;
         };
     
-      return(<Float><Text3D position={[-6, 6.7, 5]}
+      return(<Float><Text3D position={viewport.width > 18.9 ? [-6.3, 6.7, 5] : [-1.7, 6.7, 5]}
             font={blackops}
             height={0.2}
+            lineHeight={0.7}
             letterSpacing={0}
-            size={0.9}
+            size={viewport.width > 18.9 ? 0.9 : 0.5}
             curveSegments={10}
             bevelEnabled
             bevelThickness={0.02}
             bevelOffset={0.01}
-            bevelSegments={9}>Location: unknown<MatCap texture={"422509_C89536_824512_0A0604"}/></Text3D></Float>)
-        };
+            bevelSegments={9}>{title}<MatCap texture={"422509_C89536_824512_0A0604"}/></Text3D></Float>)
+  };
 
 const Sun = forwardRef(function Sun(props, forwardRef) {
     useFrame(({ clock }) => {
@@ -38,20 +42,25 @@ const Sun = forwardRef(function Sun(props, forwardRef) {
   });
   
 function Effects() {
+  const { viewport } = useThree();
   const sunRef = useResource(null);
-  const str = `      Take a moment to admire your surroundings,
-or use the links above to navigate around the website.`;
+  const str = viewport.width > 18.9 ? `      Take a moment to admire your surroundings,
+or use the links above to navigate around the website.` : `Take a moment to
+   admire your
+ surroundings, or
+  use the links
+ above to navigate
+around the website.`;
 
-  return (<><Sun ref={sunRef}/>
-      {sunRef.current && (<EffectComposer multisampling={0}>
-          <Bloom mipmapBlur luminanceThreshold={1} intensity={2}/><Float>
-          <Text 
-           position={[-6, 5.2, 5]}
-           fontSize={0.4}
-           font={robotoRegular}
-           anchorX="left">{str}
-           <meshStandardMaterial emissive="#8E741C" emissiveIntensity={1} toneMapped={false}/>
-           </Text></Float><GodRays
+  const title = viewport.width > 18.9 ? 'Location: unknown' : `Location: 
+unknown`;
+  function MatCap({ texture }) {
+    const [matcap] = useMatcapTexture(texture, 256);
+    return <meshMatcapMaterial matcap={matcap} />;
+  };
+
+  return (<EffectComposer multisampling={0}><Sun ref={sunRef}/>
+      {sunRef.current && (<GodRays
             sun={sunRef.current}
             blendFunction={BlendFunction.Screen}
             samples={30}
@@ -63,15 +72,33 @@ or use the links above to navigate around the website.`;
             width={Resizer.AUTO_SIZE}
             height={Resizer.AUTO_SIZE}
             kernelSize={KernelSize.SMALL}
-            blur={true}/></EffectComposer>)}</>);
+            blur={true}/>)}
+        <Bloom mipmapBlur luminanceThreshold={1} intensity={2}/>
+          <Float><Text3D position={viewport.width > 18.9 ? [-6.3, 6.7, 5] : [-2.5, 6.7, 5]}
+            font={blackops}
+            height={0.2}
+            lineHeight={0.7}
+            letterSpacing={0}
+            size={viewport.width > 18.9 ? 0.9 : 0.7}
+            curveSegments={10}
+            bevelEnabled
+            bevelThickness={0.02}
+            bevelOffset={0.01}
+            bevelSegments={9}>{title}<MatCap texture={"422509_C89536_824512_0A0604"}/></Text3D></Float>
+          <Float><Text 
+           position={viewport.width > 18.9 ? [-6.3, 5.2, 5] : [-2, -6, 5]}
+           fontSize={0.4}
+           font={robotoRegular}
+           anchorX="left">{str}
+           <meshStandardMaterial emissive="#CC0000" transparent opacity={0.6} emissiveIntensity={5} toneMapped={false}/>
+           </Text></Float>
+           </EffectComposer>);
 };
 
 
 export function Home () {
-const { viewport } = useThree();
-    return (<mesh scale={viewport.width > 11.5 ? viewport.width / 40 : 1}>
+    return (<mesh>
         <PerspectiveCamera makeDefault fov={65} position={[0, 0, 20]} />
-        <Title/>
         <Float>
         <Image transparent
         scale={[60, 33]}

@@ -27,7 +27,7 @@ export default function ProjectSelector() {
         />
         <Scanline blendFunction={BlendFunction.DARKEN} density={5} opacity={0.1}/>
         <Noise opacity={0.1}/>
-        <Glitch active={glitch} mode={GlitchMode.SPORADIC} strength={[0.2, 2.7]} delay={[0.2, 2]} ratio={0.7} duration={[0.05, 1]} />
+        <Glitch active={glitch} mode={GlitchMode.SPORADIC} strength={[0.2, 2.7]} delay={[0.2, 1.5]} ratio={0.7} duration={[0.05, 1]} />
         <Vignette  offset={0.7} darkness={0.55} blendFunction={BlendFunction.NORMAL}/>
       <Suspense fallback={<Loading/>}>
       <Title/>

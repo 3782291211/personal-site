@@ -13,10 +13,13 @@ export const projects = [
         "tech": `
 React, Three.js, Bootstrap`,
         "description": `
-A 3D react app created using
-Three.js, featuring a 3D and 2D
-view based on recursive geometric
-computations.`,
+A richly-featured 3D react app
+created using Three.js,
+featuring synchronised 3D and
+2D views rendered using recursive
+geometric computations, a broad
+range of game controls, CRUD 
+functionality and user authentication.`,
 "link": "https://3782291211.github.io/3D-geometric-sim/",
 "github": "https://github.com/3782291211/3D-geometric-sim"
     },
@@ -25,13 +28,14 @@ computations.`,
         "project name": "React social app",
         "type": "Front end",
         "tech": `
-React`,
+React, Axios`,
         "description": `
-A responsive React web app centred
-around data fetching and boasting
-full CRUD functionality,
-comprehensive error handling and a
-design process explicitly focused
+A responsive React web app
+centred around data processing
+and boasting full CRUD
+functionality, comprehensive
+error handling and a design
+process explicitly focused
 on UI optimisations for mobile.`,
 "link": "https://nc-news-react-app.netlify.app/",
 "github": "https://github.com/3782291211/frontend-portfolio-project"
@@ -41,13 +45,14 @@ on UI optimisations for mobile.`,
         "project name": "Node/Express REST API",
         "type": "Back end",
         "tech": `
-Node, Express`,
+Node, Express, Jest, Supertest`,
         "description": `
-A comprehensive REST API featuring
-full CRUD functionality, exhaustive
-integration testing, advanced error
-handling, relational data models,
-complex SQL join queries, pagination,
+A comprehensive REST API
+with full CRUD functionality,
+exhaustive integration testing,
+advanced error handling,
+relational data models, complex
+SQL join queries, pagination,
 modular routing, and more.`,
 "link": "https://majids-backend-api-project.onrender.com/api",
 "github": "https://github.com/3782291211/backend-portfolio-project"
@@ -88,8 +93,9 @@ integration testing.`,
 HTML, CSS, JavaScript`,
         "description": `
 An HTML/CSS project focused on
-responsive web design principles
-and attractive styling.`,
+responsive web design principles,
+attractive styling, and
+DOM manipulation.`,
 "link": "https://3782291211.github.io/HTML-CSS-portfolio-project/",
 "github": "https://github.com/3782291211/HTML-CSS-portfolio-project"
     }
