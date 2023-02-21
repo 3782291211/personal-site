@@ -7,24 +7,16 @@ import { Routes, Route } from 'react-router-dom';
 import { About } from './components/About';
 
 function App() {
-  return (
-    <div className="App">
+  return (<div className="App">
       <Navigation/>
-      <Routes>
-          <Route exact path="/" element={<Canvas camera={{fov: 70}} 
-          className='home_canvas'>
-          <Home/>
-          <Route path="/projects" element={<Canvas camera={{fov: 70}} className='home_canvas'>
-          <ProjectSelector/>
-          </Canvas>}/>
-          </Canvas>}/>
-          <Route path="/About" element={<Canvas camera={{fov: 70}} 
-          className='home_canvas'>
-          <About/>
-          </Canvas>}/>
-      </Routes>
-    </div>
-  );
+      <Canvas camera={{fov: 70}} className='home_canvas'>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/projects" element={<ProjectSelector/>}/>
+          <Route path="/about" element={<About/>}/>
+        </Routes>
+      </Canvas>
+    </div>);
 }
 
 export default App;
