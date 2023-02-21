@@ -1,11 +1,14 @@
-import { Cloud, Float, OrbitControls, PerspectiveCamera, Text3D, useMatcapTexture, Image, Text, SpotLight } from "@react-three/drei";
+import { Cloud, Float, Text3D, useMatcapTexture, Image, Text } from "@react-three/drei";
 import blackops from '../assets/black-ops.json';
 import robotoRegular from '../assets/RobotoMono-Regular.ttf';
 import { Bloom, EffectComposer } from "@react-three/postprocessing";
 import { useThree } from "@react-three/fiber";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import ancient from '../assets/ev1.jpg';
 import smAncient from '../assets/sm-ancient.jpg';
+import { isMobile } from "react-device-detect";
+import { Spinner } from "./Spinner";
+import { Loading } from "./Loading";
 
 const str = `I'm an app developer with a serious passion
 for coding. If I'm not coding, I'm planning
@@ -61,7 +64,7 @@ export function Title() {
       return(
         <Float>
         <Text3D
-            position={viewport.width < 3.3 ? [-3.5, 8.2, 2] : [-2.1, 2.5, 2]}
+            position={isMobile ? [-2.1, 2.75, 2] : viewport.width < 3.3 ? [-3.5, 8.2, 2] : [-2.1, 2.5, 2]}
             font={blackops}
             height={0.2}
             letterSpacing={0}
@@ -84,16 +87,15 @@ export function About() {
 const {viewport} = useThree();
 const meshRef = useRef();
 
-    return (
+    return (<Suspense fallback={<Loading/>}>
     <mesh ref={meshRef} scale={
       viewport.width > 8 ? 0.6
       : viewport.width > 5 ? viewport.width / 12
       : viewport.width / 11}><Float>
-    {/* <PerspectiveCamera makeDefault fov={60} position={[0, 0, 10]} /> */}
-        {/* <OrbitControls/> */}
-    <EffectComposer>
+    <EffectComposer multisampling={0}>
     <Bloom mipmapBlur luminanceThreshold={1} intensity={2}/>
     <ambientLight intensity={0.8} />
+    {isMobile && <Spinner position={[0, 6, 0]}/>}
     <Title/>
     <Cloud
         position={[0, 0, -30]}
@@ -121,7 +123,7 @@ const meshRef = useRef();
      </Text>
      </Float>
      </EffectComposer></Float>
-    </mesh>)
+    </mesh></Suspense>)
 };
 
 
