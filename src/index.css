@@ -28,14 +28,15 @@ a {
   font-size: 7px;
   color: rgb(235, 179, 48);
   font-family: 'Roboto Mono', monospace;
+  height: auto;
 }
 
 .external-link {
-  line-height: 2px;
-  margin: 10px 0
+  line-height: 0px;
+  margin: 0;
 }
 
-.external-link :hover {
+a:hover {
   color: red;
   font-style: italic;
 }
