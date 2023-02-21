@@ -58,6 +58,7 @@ nav > a {
 
 @media(max-width: 420px) {
   nav a {
-    margin: 0 8px
+    margin: 0 7px;
+    font-size: 15px
   }
 }
