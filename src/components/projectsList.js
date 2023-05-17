@@ -4,8 +4,44 @@ import nodeTexture from '../assets/node-express.png';
 import vueTexture from '../assets/vue.svg';
 import drfTexture from '../assets/drf.png';
 import htmlTexture from '../assets/html.png';
+import nextTexture from '../assets/nextjs.png';
+import laravelTexture from '../assets/laravel.png';
 
 export const projects = [
+   {
+        "image": nextTexture,
+        "project name": "Next.js app",
+        "type": "Front end",
+        "tech": `
+Next, Tailwind CSS, Bing Maps API`,
+        "description": `
+A data-centric app with highly
+interactive UI components
+(including a map and calendar),
+complex pagination, user
+authentication and authorisation,
+utility-based styling, and 
+extensive error handling.`,
+"link": "https://next13-app-alpha.vercel.app/",
+"github": "https://github.com/3782291211/next13-app"
+    },
+    {
+        "image": laravelTexture,
+        "project name": "PHP/Laravel API",
+        "type": "Back end",
+        "tech": `
+Laravel, Sanctum, PHPUnit`,
+        "description": `
+A JSON web API with user 
+authentication and authorisation 
+(through Laravel Sanctum), using
+many of Laravel's powerful 
+features, Eloquent ORM, facades
+and expressive syntax. Extensively
+tested using PHPUnit.`,
+"link": "https://laravel-php-api.vercel.app/public/api",
+"github": "https://github.com/3782291211/laravel-api"
+    },
     {
         "image": threeTexture,
         "project name": "3D React app",
@@ -22,6 +58,21 @@ range of game controls, CRUD
 functionality and user authentication.`,
 "link": "https://3782291211.github.io/3D-geometric-sim/",
 "github": "https://github.com/3782291211/3D-geometric-sim"
+    },
+    {
+        "image": drfTexture,
+        "project name": "NoSQL Python/Django API",
+        "type": "Back end",
+        "tech": `
+Python, Django, MongoDB`,
+        "description": `
+A Django REST Framework API
+supporting all CRUD operations,
+complete with comprehensive error
+handling and full-coverage
+integration testing.`,
+"link": "https://automatrixapi.pythonanywhere.com/",
+"github": "https://github.com/3782291211/django-api-project"
     },
     {
         "image": reactTexture,
@@ -69,21 +120,6 @@ interface for one of my API
 projects.`,
 "link": "https://3782291211.github.io/vue-api-interface/",
 "github": "https://github.com/3782291211/backend-portfolio-project"
-    },
-    {
-        "image": drfTexture,
-        "project name": "NoSQL Python/Django API",
-        "type": "Back end",
-        "tech": `
-Python, Django, MongoDB`,
-        "description": `
-A Django REST Framework API
-supporting all CRUD operations,
-complete with comprehensive error
-handling and full-coverage
-integration testing.`,
-"link": "https://automatrixapi.pythonanywhere.com/",
-"github": "https://github.com/3782291211/django-api-project"
     },
     {
         "image": htmlTexture,
