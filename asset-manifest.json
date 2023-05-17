@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/3D-portfolio/static/css/main.019d9285.css",
-    "main.js": "/3D-portfolio/static/js/main.a3edefaf.js",
+    "main.js": "/3D-portfolio/static/js/main.7dcbd4b1.js",
     "static/media/ai.png": "/3D-portfolio/static/media/ai.94adce8420e22838f066.png",
     "static/media/green.png": "/3D-portfolio/static/media/green.e814ffe6c3fe7d1db292.png",
     "static/media/rust.png": "/3D-portfolio/static/media/rust.fde240da50aac12a736d.png",
@@ -14,13 +14,15 @@
     "static/media/RobotoMono-Bold.ttf": "/3D-portfolio/static/media/RobotoMono-Bold.75b94c9034e8b3eabc95.ttf",
     "static/media/RobotoMono-Regular.ttf": "/3D-portfolio/static/media/RobotoMono-Regular.34e46962590bff8eefe5.ttf",
     "static/media/html.png": "/3D-portfolio/static/media/html.1336fa4c1237f6c1032d.png",
+    "static/media/nextjs.png": "/3D-portfolio/static/media/nextjs.1e27e50388d49a587c40.png",
+    "static/media/laravel.png": "/3D-portfolio/static/media/laravel.8b2939ca7ad8851c40a2.png",
     "index.html": "/3D-portfolio/index.html",
     "static/media/vue.svg": "/3D-portfolio/static/media/vue.f04dfe30a8ad8eb5c4e01aaf1163cb53.svg",
     "main.019d9285.css.map": "/3D-portfolio/static/css/main.019d9285.css.map",
-    "main.a3edefaf.js.map": "/3D-portfolio/static/js/main.a3edefaf.js.map"
+    "main.7dcbd4b1.js.map": "/3D-portfolio/static/js/main.7dcbd4b1.js.map"
   },
   "entrypoints": [
     "static/css/main.019d9285.css",
-    "static/js/main.a3edefaf.js"
+    "static/js/main.7dcbd4b1.js"
   ]
 }
