@@ -18,12 +18,9 @@ of which is reaching the end of a project and
 successfully deploying an app into production.
 
 I mainly work with JavaScript, HTML, CSS and SQL,
-but I also know Python and a bit of PHP. My focus
+but I also know Python, PHP and C#. My focus
 is on full stack web development and I
-enjoy all aspects of the development process.
-
-My current project is based on PHP and Laravel.
-I'm very excited to see how this one turns out.`;
+love all aspects of the development process.`;
 
 const strNarrow = `I'm an app developer with
 a serious passion for
@@ -41,18 +38,13 @@ app into production.
 I mainly work with
 JavaScript, HTML,
 CSS and SQL,
-but I also know Python
-and a bit of PHP.
+but I also know Python, 
+PHP and C#.
 My focus
 is on full stack
 web development and I
-enjoy all aspects of
-the development process.
-
-My current project is
-based on PHP and Laravel.
-I'm very excited to see
-how this one turns out.`;
+love all aspects of
+the development process.`;
 
 export function Title() {
   const {viewport} = useThree();
