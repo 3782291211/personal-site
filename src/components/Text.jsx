@@ -162,7 +162,7 @@ export function Project ({setGlitch, glitch}) {
          <meshStandardMaterial emissive="hotpink" emissiveIntensity={4} toneMapped={false} />
      </Text>}
 
-     {projectIndex < 5 && <Text 
+     {projectIndex < 7 && <Text 
      position={isMobile ? [1, -2.3, 0] : [1, -2.3, 0]}
      fontSize={isMobile ? 0.25 :0.20}
      font={robotoRegular}
@@ -170,7 +170,7 @@ export function Project ({setGlitch, glitch}) {
      anchorY="top"
      color="hotpink"
      onClick={() => {
-        if (projectIndex < 5) {
+        if (projectIndex < 7) {
              setProjectIndex(prev => prev + 1);
         };
      }}>
