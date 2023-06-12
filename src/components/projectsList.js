@@ -66,11 +66,12 @@ functionality and user authentication.`,
         "tech": `
 Python, Django, MongoDB`,
         "description": `
-A Django REST Framework API
-supporting all CRUD operations,
-complete with comprehensive error
-handling and full-coverage
-integration testing.`,
+A Django REST framework API
+supporting all CRUD
+operations, complete with
+comprehensive error handling
+and full-coverage integration
+testing.`,
 "link": "https://automatrixapi.pythonanywhere.com/",
 "github": "https://github.com/3782291211/django-api-project"
     },
@@ -79,7 +80,7 @@ integration testing.`,
         "project name": "React social app",
         "type": "Front end",
         "tech": `
-React, Axios`,
+React, Bootstrap, Axios`,
         "description": `
 A responsive React web app
 centred around data processing
@@ -113,13 +114,17 @@ modular routing, and more.`,
         "project name": "Vue app",
         "type": "Front end",
         "tech": `
-Vue, Bootstrap`,
+Vue, Vue Router, Bootstrap`,
         "description": `
-A Vue.js app that provides an
-interface for one of my API
-projects.`,
+A data-centric Vue.js app
+that provides a stylish UI 
+for one of my API projects.
+This app supports all CRUD
+operations and makes extensive
+use of Vue's reactivity and
+conditional/list rendering.`,
 "link": "https://3782291211.github.io/vue-api-interface/",
-"github": "https://github.com/3782291211/backend-portfolio-project"
+"github": "https://github.com/3782291211/vue-api-interface"
     },
     {
         "image": htmlTexture,
@@ -128,10 +133,11 @@ projects.`,
         "tech": `
 HTML, CSS, JavaScript`,
         "description": `
-An HTML/CSS project focused on
-responsive web design principles,
-attractive styling, and
-DOM manipulation.`,
+An HTML/CSS project focused
+on responsive web design
+principles, attractive
+styling, and DOM
+manipulation.`,
 "link": "https://3782291211.github.io/HTML-CSS-portfolio-project/",
 "github": "https://github.com/3782291211/HTML-CSS-portfolio-project"
     }
